@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <link data-require="bootstrap@3.3.7" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link data-require="bootstrap-css@3.*" data-semver="3.3.7" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css" />
+    <script data-require="angular.js@1.6.5" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script data-require="angular-animate@1.6.*" data-semver="1.6.5" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+    <script data-require="angular-touch@1.6.*" data-semver="1.6.2" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular-touch.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="2.5.0" src="https://cdn.rawgit.com/angular-ui/bootstrap/gh-pages/ui-bootstrap-tpls-2.5.0.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body ng-controller="HomeController">
+    <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+        &nbsp;<a href="#"><img src="logo.png" height = "50" width ="50"></a>
+        <h2 class = "topHeader"> &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;Order Management System</h2>
+    </nav>
+    
+    <h3>All Orders</h3>
+     <div>
+        <button class="btn btn-primary addNewOrder " ng-click="openModal()">Add New Order</button>
+        <div ng-include="'modal.html'"></div>
+    </div>
+    <br>
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Order Number</th><th>Order Due Date </th>
+                    <th>Customer Buyer Name</th><th>Customer Address</th><th>Customer Phone</th>
+                    <th>Order Total</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="record in records">
+                    <td>{{record.orderNumber}}</td>
+                    <td>{{record.orderDueDate | date: 'dd-MMM-yy'}}</td>
+                    <td>{{record.customerBuyerName}}</td>
+                    <td>{{record.customerAddress}}</td>
+                    <td>{{record.customerPhone}}</td>
+                    <td>{{record.orderTotal}}</td>
+                    <td>
+                        <button class="btn btn-primary" type="button" ng-click="edit(record)">edit</button>
+                        <button class="btn btn-danger" type="button" ng-click="delete($index)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+</body>
+
+</html>

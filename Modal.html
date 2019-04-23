@@ -1,0 +1,55 @@
+<div>
+    <script type="text/ng-template" id="modaldialog.html">
+        <div class="modal-header bg-primary">
+            <h4 class="modal-title">Add New Order</h4>
+        </div>
+        <div class="modal-body">
+            <form name="userAddForm" >
+           <!-- ORDER NUMBER -->
+            <div class="form-group">
+                <label>Order Number</label>
+                <input type="text" id="orderNumber" maxlength="14" required class="form-control" name="orderNumber" ng-model = "record.orderNumber">
+                <p ng-show="userAddForm.orderNumber.$invalid && !userAddForm.orderNumber.$pristine" class="help-block">Order Number is required.</p>
+            </div>
+
+            <!-- ORDER DUE DATE -->
+            <div class="form-group"  >
+                    <label>Order Due Date</label>
+                    <div date-directive ng-model="record.orderDueDate"></div>
+            </div>
+            
+            <!-- CUSTOMER BUYER NAME -->
+            <div class="form-group">
+                <label>Customer Buyer Name</label>
+                <input type="text" name="customerBuyerName" class="form-control" ng-model="record.customerBuyerName" required>
+                <p ng-show="userAddForm.customerBuyerName.$invalid && !userAddForm.customerBuyerName.$pristine" class="help-block">Customer Buyer Name is required.</p>
+            </div>
+
+            <!--CUSTOMER ADDRESS -->
+            <div class="form-group">
+                <label>Customer Address</label>
+                <input type="text" name="customerAddress" class="form-control" ng-model="record.customerAddress" ng-minlength="3" ng-maxlength="8" required>
+                <p ng-show="userAddForm.customerAddress.$invalid && !userAddForm.customerAddress.$pristine" class="help-block">Customer Address is required.</p>
+            </div>
+
+            <!-- CUSTOMER PHONE -->
+            <div class="form-group">
+                <label>Customer Phone</label>
+                <input type="text" id="customerPhone" maxlength="10" required class="form-control" name="customerPhone" ng-model = "record.customerPhone">
+                <p ng-show="userAddForm.customerPhone.$invalid && !userAddForm.customerPhone.$pristine" class="help-block">Customer Phone is required.</p>
+            </div>
+
+            <!-- ORDER TOTAL -->
+            <div class="form-group">
+                <label>Order Total</label>
+                <input type="number" id="orderTotal" maxlength="10" required class="form-control" name="orderTotal" ng-model = "record.orderTotal">
+                <p ng-show="userAddForm.orderPhone.$invalid && !orderPhone.customerPhone.$pristine" class="help-block">Order Total is required.</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success" ng-click="save()">save</button>
+            <button type="button" class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+</div>
+</form>
